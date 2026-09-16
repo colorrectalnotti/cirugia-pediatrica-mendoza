@@ -31,7 +31,10 @@
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand">Dr. Sebastián Ruarte <span>· Cirugía Pediátrica</span></a>
-    <nav class="main-nav">
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="coloproctologia-pediatrica.html">Coloproctología Pediátrica</a></li>
@@ -51,7 +54,7 @@
   <div class="container">
     <span class="eyebrow">Formación y trayectoria</span>
     <h1>Dr. Sebastián Ruarte</h1>
-    <p class="lead" style="max-width:60ch;">Especialista en Cirugía Pediátrica.</p>
+    <p class="lead" style="max-width:60ch;">Especialista en Cirugía Pediátrica (cirujano infantil), en Mendoza.</p>
   </div>
 </section>
 
@@ -65,7 +68,9 @@
       <p>Vicepresidente de la Asociación Mendocina de Cirugía Pediátrica (AMCIP) desde 2026.</p>
 
       <h2>Área de dedicación</h2>
-      <p>Acompaño especialmente a pacientes con patologías coloproctológicas pediátricas, además de la práctica general de cirugía pediátrica: hernia umbilical, fimosis, hemorroides y fisuras, y otras patologías frecuentes en la infancia.</p>
+      <p>Acompaño especialmente a pacientes con <a href="coloproctologia-pediatrica.html">patologías coloproctológicas pediátricas</a>, además de la práctica general de cirugía pediátrica: <a href="hernia-umbilical.html">hernia umbilical</a>, <a href="fimosis.html">fimosis</a>, <a href="hemorroides-fisuras.html">hemorroides y fisuras</a>, y otras patologías frecuentes en la infancia.</p>
+
+      <p class="small" style="color:var(--charcoal-soft);margin-top:24px;">Última actualización: 16 de septiembre de 2026.</p>
     </div>
     <div class="hero-photo has-img"><img src="images/dr-ruarte-quirofano.jpg" alt="Dr. Sebastián Ruarte en quirófano"></div>
   </div>
@@ -102,6 +107,20 @@
     <div class="footer-bottom">© <span id="year"></span> Dr. Sebastián Ruarte — Cirugía Pediátrica Mendoza. La información de este sitio es educativa y no reemplaza una consulta médica.</div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+var navToggle = document.querySelector('.nav-toggle');
+var mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', function () {
+    var isOpen = mainNav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mainNav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}</script>
 </body>
 </html>

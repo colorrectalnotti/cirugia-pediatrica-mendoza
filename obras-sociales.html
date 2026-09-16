@@ -25,13 +25,19 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://cirugiapediatricamendoza.com.ar/"},{"@type":"ListItem","position":2,"name":"Obras Sociales","item":"https://cirugiapediatricamendoza.com.ar/obras-sociales.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué pasa si mi obra social no está en la lista?","acceptedAnswer":{"@type":"Answer","text":"Escribime por WhatsApp indicando tu obra social y plan — te confirmo si hay convenio directo vigente antes de reservar el turno."}},{"@type":"Question","name":"¿Necesito autorización previa de mi obra social?","acceptedAnswer":{"@type":"Answer","text":"Algunas coberturas requieren autorización previa según el procedimiento. Se indica puntualmente al coordinar cada turno, según tu obra social y la práctica que corresponda."}},{"@type":"Question","name":"¿El listado de convenios cambia con el tiempo?","acceptedAnswer":{"@type":"Answer","text":"Sí, los convenios pueden actualizarse. Este listado se revisa periódicamente; ante la duda, siempre es mejor confirmar por WhatsApp antes del turno."}}]}
+</script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand">Dr. Sebastián Ruarte <span>· Cirugía Pediátrica</span></a>
-    <nav class="main-nav">
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="coloproctologia-pediatrica.html">Coloproctología Pediátrica</a></li>
@@ -116,6 +122,20 @@
     <div class="center" style="margin-top:40px;">
       <a href="contacto.html" class="btn btn-primary">Consultar mi cobertura</a>
     </div>
+
+    <h2 style="margin-top:60px;">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué pasa si mi obra social no está en la lista?</h3>
+      <p>Escribime por WhatsApp indicando tu obra social y plan — te confirmo si hay convenio directo vigente antes de reservar el turno.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Necesito autorización previa de mi obra social?</h3>
+      <p>Algunas coberturas requieren autorización previa según el procedimiento. Se indica puntualmente al coordinar cada turno, según tu obra social y la práctica que corresponda.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿El listado de convenios cambia con el tiempo?</h3>
+      <p>Sí, los convenios pueden actualizarse. Este listado se revisa periódicamente; ante la duda, siempre es mejor confirmar por WhatsApp antes del turno.</p>
+    </div>
   </div>
 </section>
 
@@ -142,6 +162,20 @@
     <div class="footer-bottom">© <span id="year"></span> Dr. Sebastián Ruarte — Cirugía Pediátrica Mendoza. La información de este sitio es educativa y no reemplaza una consulta médica.</div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+var navToggle = document.querySelector('.nav-toggle');
+var mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', function () {
+    var isOpen = mainNav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mainNav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}</script>
 </body>
 </html>

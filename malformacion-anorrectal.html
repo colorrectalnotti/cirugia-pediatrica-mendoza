@@ -34,7 +34,10 @@
 <header class="site-header">
   <div class="nav-wrap">
     <a href="index.html" class="brand">Dr. Sebastián Ruarte <span>· Cirugía Pediátrica</span></a>
-    <nav class="main-nav">
+    <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="coloproctologia-pediatrica.html" class="active">Coloproctología Pediátrica</a></li>
@@ -153,6 +156,20 @@
     </div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+var navToggle = document.querySelector('.nav-toggle');
+var mainNav = document.getElementById('main-nav');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', function () {
+    var isOpen = mainNav.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mainNav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}</script>
 </body>
 </html>
