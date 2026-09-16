@@ -564,3 +564,37 @@ footer li { margin-bottom: 8px; }
 .center { text-align: center; }
 .mt-0 { margin-top: 0; }
 .small { font-size: 0.85rem; color: var(--charcoal-soft); }
+
+/* ---------- Tagline (frase cálida bajo el H1) ---------- */
+.hero .tagline {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sage-deep);
+  margin: 0 0 0.7em;
+}
+
+/* ---------- Breadcrumbs ---------- */
+.breadcrumbs {
+  background: var(--ivory-soft);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--charcoal-soft);
+}
+.breadcrumbs li:not(:last-child)::after {
+  content: "›";
+  margin-left: 6px;
+  color: var(--gold);
+}
+.breadcrumbs a { color: var(--charcoal-soft); }
+.breadcrumbs a:hover { color: var(--sage-deep); }
+.breadcrumbs li[aria-current="page"] { color: var(--charcoal); font-weight: 500; }
