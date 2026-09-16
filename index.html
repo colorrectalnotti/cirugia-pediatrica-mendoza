@@ -7,7 +7,9 @@
 <meta name="description" content="Dr. Sebastián Ruarte, especialista en Cirugía Pediátrica formado en el Hospital Notti. Atención de hernia umbilical, fimosis, hemorroides y fisuras en niños. Consultorios en Mendoza y Luján de Cuyo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://cirugiapediatricamendoza.com.ar/">
@@ -101,7 +103,10 @@
         <a href="sobre-mi.html" class="btn">Conocer mi formación</a>
       </div>
     </div>
-    <div class="hero-photo has-img"><img src="images/dr-ruarte-quirofano.jpg" alt="Dr. Sebastián Ruarte en quirófano"></div>
+    <div class="hero-photo has-img"><picture>
+      <source srcset="images/dr-ruarte-quirofano.webp" type="image/webp">
+      <img src="images/dr-ruarte-quirofano.jpg" alt="Dr. Sebastián Ruarte en quirófano" width="900" height="1125" fetchpriority="high">
+    </picture></div>
   </div>
 </section>
 
